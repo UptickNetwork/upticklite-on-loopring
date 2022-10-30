@@ -31,15 +31,22 @@ https://upticklite.uptick.network/#/index
 除了通用的Marketplace功能开发，技术层面的定制化要点在于和Loopring接口和NFT协议的结合、账户体系的结合、在loopring Layer2上实现NFT 交易以及基于Loopring撮合交易平台的订单管理。
 
 ### 代码仓库
+前端
+https://github.com/UptickNetwork/upticklite-web
 中间件
 https://github.com/UptickNetwork/upticklite-service
 
 服务端
 https://github.com/UptickNetwork/upticklite-api
 
+后台管理
+https://github.com/UptickNetwork/upticklite-admin
 
-前端
-https://github.com/UptickNetwork/upticklite-web
+
+
+
+
+
 
 ### 参考文档
 https://loopring.github.io/loopring_sdk/
