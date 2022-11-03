@@ -40,8 +40,6 @@ https://github.com/UptickNetwork/upticklite-service
 服务端
 https://github.com/UptickNetwork/upticklite-api
 
-后台管理
-https://github.com/UptickNetwork/upticklite-admin
 
 
 
