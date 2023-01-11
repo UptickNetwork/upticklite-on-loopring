@@ -1,43 +1,45 @@
 # Uptick Lite on Loopring
 
 
-项目预览链接
+Project Preview Link:
 https://upticklite.uptick.network/#/index
 
-### 概述
-本项目是一个基于Loopring平台的基础版NFT市场平台，包含围绕NFT资产的管理功能，包括NFT的发布、铸造、上架、交易、下架、卡包、转移等。目的不是直接成为一个商业化运营的NFT平台，而是通过这个NFT市场的基本功能，提供给业界一个基于Loopring的NFT平台的参考设计，使有计划在Loopring上建立自身的NFT平台的项目可以快速上手。
+### Overview
+Uptick Lite on Loopring is the basic version of the Uptick NFT Marketplace; based on Loopring, and providing NFT asset management functions (some of which include minting, listing, trading, and NFT transfer capabilities). The purpose is not to directly become a commercially operated NFT platform, but to provide the industry with a design reference of a Loopring-based NFT marketplace through the basic NFT management functions we provide. This helps the projects that originally planned to build their own NFT platform on Loopring get started as quickly as possible.
 
-本项目由Uptick Network团队负责搭建和维护，Loopring团队同步参与并提供和Loopring技术相关的支持。
+Uptick Lite on Loopring is developed and maintained by Uptick Network, with Loopring participating and simultaneously providing technical support.
 
-本项目将以开源的形式对外发布，凡是愿意遵守本项目的开源协议的开发者均可使用。
+This project will be open-sourced and become available to all developers who are willing to abide by the open-source agreement of this project.
 
-### 主要功能
-作为一个基础版的NFT Marketplace，包含所有针对NFT操作的功能，以便有自身业务场景的开发商快速开发自己的专用NFT交易市场。本通用市场不包含涉及具体业务场景和日常运营的逻辑和功能。
-#### 核心NFT功能：
-  - Mint：铸造NFT资产
-  - List: 交易市场上架
-  - De-list：从市场下架
-  - Trade：市场内交易达成
-  - Transfer：资产转移
-  - Market：一手市场和二手市场
-  - Wallet：NFT资产卡包及账号管理
-  - Storage：数据存储管理接口
+### Main Function
+As a general NFT Marketplace, this version only includes the basic functions for NFT operation, so that developers can quickly develop their own dedicated NFT marketplace to meet their own customized and specific business scenarios. This open-source NFT marketplace does not contain logic or functions related to the specific business scenarios and daily operations.
 
-### 系统设计
-整个系统分为三个主要技术组成部分：
-  - 中间件：实现和Loopring底层的交互
-  - 服务端：实现NFT管理相关的业务逻辑和Marketplace管理
-  - 前端：基于Web browser的Web端，实现和用户交互的功能
-除了通用的Marketplace功能开发，技术层面的定制化要点在于和Loopring接口和NFT协议的结合、账户体系的结合、在loopring Layer2上实现NFT 交易以及基于Loopring撮合交易平台的订单管理。
+#### Core NFT Functions：
+  - Mint：Create NFT assets
+  -  List: Publish NFTs to the marketplace to start selling
+  -  De-list: Remove NFTs from the marketplace to stop selling
+  -  Trade: Buy and sell NFTs in the marketplace
+  - Transfer: Transfer NFTs to another address
+  - Market: First-hand and second-hand market
+  - Wallet: Non-custodial NFT asset and account management
+  - Storage: Data storage management interface
 
-### 代码仓库
-前端
+### System Design
+The whole system is divided into three main technical components:
+  - Middleware
+    Realize the interaction via the bottom layer of Loopring
+
+  - Server 
+  Realize business logic related to NFT management and marketplace management
+  - Front-End ：Through the web browser (network browser), the interaction between the system and the user is realized. In addition to the general marketplace functions, the system realizes NFT transactions on the Loopring Layer 2 network at the technical level by combining with the Loopring interface protocol, NFT protocol, and account management protocol; realizing the order management of the platform through the Loopring matching protocol
+### Code Repository
+WEB
 https://github.com/UptickNetwork/upticklite-web
 
-中间件
+Middleware
 https://github.com/UptickNetwork/upticklite-service
 
-服务端
+API Server
 https://github.com/UptickNetwork/upticklite-api
 
 
@@ -47,7 +49,7 @@ https://github.com/UptickNetwork/upticklite-api
 
 
 
-### 参考文档
+### Reference Documents
 https://loopring.github.io/loopring_sdk/
 
 
