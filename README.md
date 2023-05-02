@@ -34,13 +34,13 @@ The whole system is divided into three main technical components:
   - Front-End ：Through the web browser (network browser), the interaction between the system and the user is realized. In addition to the general marketplace functions, the system realizes NFT transactions on the Loopring Layer 2 network at the technical level by combining with the Loopring interface protocol, NFT protocol, and account management protocol; realizing the order management of the platform through the Loopring matching protocol
 ### Code Repository
 WEB
-https://github.com/UptickNetwork/upticklite-web
+upticklite-web
 
 Middleware
-https://github.com/UptickNetwork/upticklite-service
+upticklite-service
 
 API Server
-https://github.com/UptickNetwork/upticklite-api
+upticklite-api
 
 
 
