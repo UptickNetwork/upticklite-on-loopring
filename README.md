@@ -36,13 +36,13 @@ The whole system is divided into three main technical components:
 ### Code Repository
 
 WEB
-https://github.com/UptickNetwork/upticklite-on-loopring/upticklite-web
+https://github.com/UptickNetwork/upticklite-on-loopring/tree/main/upticklite-web
 
 Middleware
-https://github.com/UptickNetwork/upticklite-on-loopring/upticklite-service
+https://github.com/UptickNetwork/upticklite-on-loopring/tree/main/upticklite-service
 
 API Server
-https://github.com/UptickNetwork/upticklite-on-loopringupticklite-api
+https://github.com/UptickNetwork/upticklite-on-loopring/tree/main/upticklite-api
 
 
 
