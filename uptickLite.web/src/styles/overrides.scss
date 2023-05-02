@@ -1,0 +1,75 @@
+div{
+   color: #270645;
+}
+.v-btn {
+   text-transform: none;
+   &.rd {
+      color: #fff;
+      background-image: linear-gradient(90deg, 
+         #d300fd 0%, 
+         #a439fe 26%, 
+         #7471ff 52%, 
+         #00fdcf 100%), 
+      linear-gradient(
+         #270645, 
+         #270645);
+      &.v-btn--outlined {
+         position: relative;
+         color: $primary;
+         width: 85px;
+         height: 41px;
+         background-image: linear-gradient(
+            #ffffff, 
+            #ffffff), 
+         linear-gradient(
+            #270645, 
+            #270645);
+         background-blend-mode: normal, 
+            normal;
+         border-style: solid;
+         border-width: 2px;
+         border-image-source: linear-gradient(0deg, 
+            #d202fd 0%, 
+            #a538fe 26%, 
+            #776eff 51%, 
+            #01facd 100%);
+         border-image-slice: 1;
+      }
+   }
+   &.uc {
+      background-color: #1d42ff !important;
+      border-radius: 20px;
+
+      font-family: Helvetica;font-weight: bold;
+      font-size: 15px;
+      letter-spacing: 0px;
+      color: #ffffff;
+   }
+}
+
+.v-tab {
+   text-transform: none; 
+}
+
+.v-tabs.rd {
+   .v-tab {
+      color: $primary;
+      font-size: 15px;
+      letter-spacing: 0;
+      &:hover::before,&:active::before {
+         background: transparent;
+      }
+   }
+}
+.v-item-group .v-slide-group__prev, .v-item-group .v-slide-group__next {
+   display: none!important;
+}
+.v-dialog{
+   width:auto;
+   height:auto;
+}
+
+.v-window {
+   overflow: visible;
+}
+

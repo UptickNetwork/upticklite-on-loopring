@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "es2017",
+      "baseUrl": "./",
+      "declaration": true,
+      "sourceMap": true,
+      "noImplicitAny": false,
+      "removeComments": true,
+      "noLib": false,
+      "allowJs": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "outDir": "./build",
+      "resolveJsonModule": true,
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext",
+        "es7"
+      ],
+      "esModuleInterop": true,
+      "typeRoots": [
+        "node_modules/@types"
+      ]
+    },
+    "include": [
+      "src/**/*.ts"
+    ]
+  }

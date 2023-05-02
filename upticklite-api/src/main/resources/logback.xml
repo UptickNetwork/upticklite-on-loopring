@@ -1,0 +1,32 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d %p (%file:%line\)- %m%n</pattern>
+
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+
+    <appender name="syslog"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>log/sys.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/sys.%d.%i.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                %d %p (%file:%line\)- %m%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+    <root level="info">
+<!--        <appender-ref ref="STDOUT"/>-->
+        <appender-ref ref="syslog"/>
+    </root>
+</configuration>
