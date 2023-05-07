@@ -38,8 +38,10 @@ import {
     ExchangeAPI,
     NFTAPI,
     GlobalAPI,
-    LockApi,
     sleep,
+} from "@loopring-web/loopring-sdk";
+import {
+    LockApi  
 } from "@uptsmart/loopring-sdk";
 
 import {
@@ -52,7 +54,8 @@ import api from "@/api";
 // wallet connect
 import WalletConnectProvider from "@walletconnect/web3-provider";
 
-const sdk = require("@uptsmart/loopring-sdk");
+// const sdk = require("@uptsmart/loopring-sdk");
+const sdk = require("@loopring-web/loopring-sdk");
 const web3Obj = new Web3();
 
 let LoopringAPI,LoopringOrgApi;
@@ -93,13 +96,14 @@ export class LRCHandler {
                 ChainId = sdk.ChainId.MAINNET;
             }
             LoopringAPI = {
-                userAPI: new UserAPI({ chainId: ChainId }),
-                exchangeAPI: new ExchangeAPI({ chainId: ChainId }),
-                nftAPI: new NFTAPI({ chainId: ChainId }),
-                globalAPI: new GlobalAPI({ chainId: ChainId }),
+                userAPI: new UserAPI({ chainId: ChainId },{ChainId}),
+                exchangeAPI: new ExchangeAPI({ chainId: ChainId },{ChainId}),
+                nftAPI: new NFTAPI({ chainId: ChainId },{ChainId}),
+                globalAPI: new GlobalAPI({ chainId: ChainId },{ChainId}),
                 lockAPI:new LockApi({ chainId: ChainId })
+              
             };
-
+  // ,lockAPI:new LockApi({ chainId: ChainId })
             LoopringOrgApi = {
                 orgUserApi:new OrgUserApi({ chainId: ChainId})
             }
@@ -196,7 +200,7 @@ export class LRCHandler {
             return true
         }
         const { exchangeInfo, accInfo, keySeed, eddsaKey, apiKey, activeFee, storageId, nftTokenAddress }  = info;
-        this.setSession(exchangeInfo, accInfo, keySeed, eddsaKey, apiKey, activeFee, storageId, nftTokenAddress);
+        this.setSession(exchangeInfo, accInfo, keySeed, eddsaKey, info.apiKey, activeFee, storageId, nftTokenAddress);
         getApiKeyCount = 0;  // Set to 0 for subsequent calls
 
         window.eventBus.$emit("SignatureEvent", 2);
@@ -240,7 +244,6 @@ export class LRCHandler {
         if(!accInfo) return;
 
         const { apiKey } = await LoopringAPI.userAPI.getUserApiKey({ accountId: accInfo.accountId },eddsaKey.sk);
-
         if(typeof(apiKey) == "undefined"){
             return false;
         }else{
@@ -262,6 +265,7 @@ export class LRCHandler {
     }
 
     setSession(exchangeInfo, accInfo, keySeed, eddsaKey, apiKey, activeFee, storageId, nftTokenAddress) {
+
         // cache info
         lrcAccount = { exchangeInfo, accInfo, keySeed, eddsaKey, apiKey, activeFee, storageId, nftTokenAddress };
         sessionStorage.setItem("KEY_exchangeInfo", JSON.stringify(exchangeInfo));
@@ -363,6 +367,13 @@ export class LRCHandler {
     }
 
     async getAllUserBalances() {
+		const fromAddress = await this.getAccountAddress();
+		let info = await this.getAccountDetail(fromAddress, ChainId);
+		if(!info) {
+		   lrcAccount.accInfo= info;
+		}
+		
+		
         if(!lrcAccount.accInfo.accountId){
             return;
         }
@@ -607,7 +618,7 @@ export class LRCHandler {
         window.web3 = await this.generateWeb3();
         
         await this.getApiKeyCache();
-        const { exchangeInfo, accInfo, eddsaKey, apiKey } = lrcAccount;     
+        const { exchangeInfo, accInfo, eddsaKey, apiKey } = lrcAccount; 
         const storageId = await LoopringAPI.userAPI.getNextStorageId(
             {
                 accountId: accInfo.accountId,
@@ -853,10 +864,15 @@ export class LRCHandler {
             validUntil: validUntil,
             maxFeeBips: getMaxFeeBips(totalRoyalty),
         };
-        makerOrder.eddsaSignature = sdk.get_EddsaSig_NFT_Order(
+       
+
+        let eddsaSignature= await sdk.get_EddsaSig_NFT_Order(
             makerOrder,
             eddsaKey.sk
         );
+        makerOrder.eddsaSignature  = eddsaSignature.result
+        console.log( makerOrder.eddsaSignature);
+        debugger
         return makerOrder;
     }
 
@@ -898,10 +914,12 @@ export class LRCHandler {
                 maxFeeBips: tradeCost,
             };
             
-            takerOrder.eddsaSignature = sdk.get_EddsaSig_NFT_Order(
+  
+            let eddsaSignature = sdk.get_EddsaSig_NFT_Order(
                 takerOrder,
                 eddsaKey.sk
             );
+            takerOrder.eddsaSignature = eddsaSignature.result
             
             return takerOrder;
         }catch(e){
@@ -995,9 +1013,23 @@ export class LRCHandler {
         if(!eddsaKey) return;
 
         //5 apiKey
-        const { apiKey } = await LoopringAPI.userAPI.getUserApiKey(
-            { accountId: accInfo.accountId },
-            eddsaKey.sk);
+        // const { apiKey } = await LoopringAPI.userAPI.getUserApiKey(
+        //     { accountId: accInfo.accountId },
+        //     eddsaKey.sk);
+			
+						    let apiKeyInfo;
+							let apiKey;
+						try{
+			 apiKeyInfo= await LoopringAPI.userAPI.getUserApiKey(
+						        { accountId: accInfo.accountId },
+						        eddsaKey.sk);
+						    	 apiKey=apiKeyInfo.apiKey
+						}catch(e){
+							
+						    console.log("xxl e ",e);
+						}
+			
+			
 
         //6 get Active FeeInfo
         const activeFee = await LoopringAPI.globalAPI.getActiveFeeInfo({
@@ -1161,7 +1193,7 @@ export class LRCHandler {
        
             //  调用loopingSDK服务
             let res = await LoopringAPI.lockAPI.getLockHashAndEddsaSignature(loopingApiData,eddsaKey.sk)
-    
+
   
             let jsonData = {    
                 eddsaSignature:res.sig,

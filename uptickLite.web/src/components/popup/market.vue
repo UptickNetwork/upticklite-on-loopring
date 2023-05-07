@@ -284,6 +284,7 @@ export default {
         this.parentValue.royaltyPercentage,
         validUntil
       );
+      console.log();
       if(!signature){
           this.$toast("error", "Signature request was rejected");
                this.isPay = false;
