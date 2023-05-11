@@ -20,7 +20,8 @@ As a general NFT Marketplace, this version only includes the basic functions for
   -  De-list: Remove NFTs from the marketplace to stop selling
   -  Trade: Buy and sell NFTs in the marketplace
   - Transfer: Transfer NFTs to another address
-  - Market: First-hand and second-hand market
+  - Marketplace: Display all NFTs
+  - Launchpad: Display series of works in the form of collections
   - Wallet: Non-custodial NFT asset and account management
   - Storage: Data storage management interface
 
