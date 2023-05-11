@@ -26,10 +26,11 @@ As a general NFT Marketplace, this version only includes the basic functions for
 
 ### System Design
 The whole system is divided into three main technical components:
-  - Middleware
+
+  - Middleware ：
     Realize the interaction via the bottom layer of Loopring
 
-  - Server 
+  - Server ：
   Realize business logic related to NFT management and marketplace management
   - Front-End ：Through the web browser (network browser), the interaction between the system and the user is realized. In addition to the general marketplace functions, the system realizes NFT transactions on the Loopring Layer 2 network at the technical level by combining with the Loopring interface protocol, NFT protocol, and account management protocol; realizing the order management of the platform through the Loopring matching protocol
 
