@@ -15,7 +15,7 @@ This project is open-sourced and available to all developers who are willing to 
 As a general NFT Marketplace, this version only includes the basic functions for NFT operation, so that developers can quickly develop their own dedicated NFT marketplace to meet their own customized and specific business scenarios. This open-source NFT marketplace does not contain logic or functions related to the specific business scenarios and daily operations.
 
 #### Core NFT Functions：
-  - Mint：Create NFT assets
+  - Mint: Create NFT assets
   -  List: Publish NFTs to the marketplace to start selling
   -  De-list: Remove NFTs from the marketplace to stop selling
   -  Trade: Buy and sell NFTs in the marketplace
@@ -27,12 +27,12 @@ As a general NFT Marketplace, this version only includes the basic functions for
 ### System Design
 The whole system is divided into three main technical components:
 
-  - Middleware ：
+  - Middleware: 
     Realize the interaction via the bottom layer of Loopring
 
-  - Server ：
+  - Server: 
   Realize business logic related to NFT management and marketplace management
-  - Front-End ：Through the web browser (network browser), the interaction between the system and the user is realized. In addition to the general marketplace functions, the system realizes NFT transactions on the Loopring Layer 2 network at the technical level by combining with the Loopring interface protocol, NFT protocol, and account management protocol; realizing the order management of the platform through the Loopring matching protocol
+  - Front-End: Through the web browser (network browser), the interaction between the system and the user is realized. In addition to the general marketplace functions, the system realizes NFT transactions on the Loopring Layer 2 network at the technical level by combining with the Loopring interface protocol, NFT protocol, and account management protocol; realizing the order management of the platform through the Loopring matching protocol
 
 ### Code Repository
 
