@@ -48,8 +48,6 @@ https://github.com/UptickNetwork/upticklite-on-loopring/tree/main/upticklite-api
 
 
 
-
-
 ### Reference Documents
 https://loopring.github.io/loopring_sdk/
 
