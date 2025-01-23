@@ -1,6 +1,5 @@
 # Uptick Lite on Loopring
 
-
 Project Preview Link:
 https://upticklite.uptick.network/#/index
 
