@@ -10,6 +10,7 @@ Uptick Lite on Loopring is developed and maintained by Uptick Network, with Loop
 
 This project is open-sourced and available to all developers who are willing to abide by the open-source agreement of this project.
 
+
 ### Main Function
 As a general NFT Marketplace, this version only includes the basic functions for NFT operation, so that developers can quickly develop their own dedicated NFT marketplace to meet their own customized and specific business scenarios. This open-source NFT marketplace does not contain logic or functions related to the specific business scenarios and daily operations.
 
