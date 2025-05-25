@@ -55,5 +55,3 @@ Contact: loopring@uptickproject.com
 Technical Support: 
 https://discord.com/channels/781005936260939818/981431815841669120
 
-
-
